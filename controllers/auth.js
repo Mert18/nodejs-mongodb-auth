@@ -40,7 +40,6 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 exports.signup = (req, res) => {
     const { name, email, password } = req.body;
-
     User.findOne({ email }).exec((err, user) => {
         if (user) {
             return res.status(400).json({
